@@ -1,5 +1,9 @@
 <?php
 	class SQL {
+		/*
+			Clase para abarcar toda la funcionalidad de las llamadas SQL
+			para cualquier BD.
+		*/
         protected static $instancia;
 		public $servidor;
 		public $usuario;
@@ -51,9 +55,11 @@
 		}
 		
 		public function cargar_filas_tabla($tabla, $orderby='') {
-			//Cargamos cualquier tabla para obtener todo su contenido.
-			//Se le puede proporcionar un parámetro de ordenación.
-			//Devolverá un vector asociativo.
+			/*
+				Cargamos cualquier tabla para obtener todo su contenido.
+				Se le puede proporcionar un parámetro de ordenación.
+				Devolverá un vector asociativo.
+			*/
 			if ($orderby != ''){
 				$orderby = " ORDER BY $orderby";
 			}
