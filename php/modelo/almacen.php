@@ -21,15 +21,15 @@
 
 			Usamos una instancia única mediante el patrón Singleton.
 		*/
-        private static $instancia;
-        private static $productos;
-        private $sql;
+		private static $instancia;
+		private static $productos;
+		private $sql;
 
-        public function __construct() {
-			self::$productos = array();
-			self::$instancia = null;
-			$this->sql = SQL::instanciar();
-        }
+		public function __construct() {
+				self::$productos = array();
+				self::$instancia = null;
+				$this->sql = SQL::instanciar();
+		}
 
 		public static function instanciar() {
 			if (static::$instancia == null) {
@@ -38,7 +38,7 @@
 			return static::$instancia;
 		}
 
-        public function cargar_productos() {
+		public function cargar_productos() {
 			// Descargamos los productos de la base de datos.
 			$productos = $this->sql->cargar_filas_tabla ('productos', 'id_producto');
 			foreach($productos as $producto) {
@@ -52,7 +52,7 @@
 				);
 				array_push(self::$productos, $p);
 			}
-        }
+		}
 
 		public function obtener_productos() {
 			return self::$productos;
@@ -61,7 +61,7 @@
 		public function talla() {
 			return count(self::$productos);
 		}
-		
+
 		public function anyadir_producto($id, $nombre, $precio=0.0, $stock=0, $imagen='', $descripcion='') {
 			$producto = new Producto($id, $nombre, $precio, $stock, $imagen, $descripcion);
 			self::$productos[] = $producto;
@@ -90,7 +90,7 @@
 				}
 			}
 		}
-		
+
 		public function obtener_producto($id) {
 			if ($id<1 || $id > $this->talla() - 1)
 				return null;
@@ -103,5 +103,5 @@
 
 			return null;
 		}
-    }
+	}
 ?>
