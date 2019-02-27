@@ -6,4 +6,10 @@
         $almacen->incrementar_stock(4);
         $almacen->incrementar_stock(4);
     }
+ 
+    if (isset($GLOBALS['clientela'])) {
+        echo "SERIOUSLY";
+        $clientela[0]->obtener_clientes();
+    }
+
 ?>
