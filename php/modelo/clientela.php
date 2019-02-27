@@ -18,7 +18,6 @@
             $this->sql = SQL::instanciar();
             self::$tabla = 'clientes';
             self::$id_sql = 'id_cliente';
-
         }
 
         public static function instanciar() {
@@ -46,3 +45,4 @@
             return self::$clientes;
         }
     }
+?>
